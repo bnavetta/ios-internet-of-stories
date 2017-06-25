@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'application'
+    id "com.github.johnrengelman.shadow" version "2.0.1"
+}
+
+mainClassName = 'internet.stories.App'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.facebook4j:facebook4j-core:2.4.9'
+    compile 'com.amazonaws:aws-java-sdk-dynamodb:1.11.155'
+    compile 'com.github.ben-manes.caffeine:caffeine:2.5.2'
+    compile 'com.google.guava:guava:22.0'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile "com.sparkjava:spark-core:2.6.0"
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+}

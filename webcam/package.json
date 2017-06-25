@@ -1,0 +1,9 @@
+{
+  "name": "chrome-extension",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
+  }
+}

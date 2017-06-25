@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+
+  "name": "Internet Stories",
+  "description": "This extension shows a Google Image search result for the current page",
+  "version": "1.0",
+  "permissions": [
+    "tabs",
+    "*://*.twitter.com/*",
+    "*://*/"
+  ],
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Internet Stories"
+  },
+  "web_accessible_resources": [
+    "webcam.js",
+    "main.css"
+  ],
+  "content_scripts": [
+    {
+      "matches" : ["<all_urls>"],
+      "js": [
+        "node_modules/crypto-js/crypto-js.js",
+        "inject.js"
+      ]
+    }
+  ]
+
+}

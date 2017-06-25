@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+
+  "name": "Internet of Stories",
+  "description": "This extension shows a Google Image search result for the current page",
+  "version": "1.0",
+  "permissions": [
+    "tabs",
+    "storage",
+    "*://*.twitter.com/*"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Internet of Stories"
+  },
+  "background": {
+    "scripts": ["jquery-3.2.1.min.js", "facebook_auth.js"]
+  },
+  "content_security_policy": "script-src 'self' https://connect.facebook.net; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["story_main.css", "css/font-awesome.min.css", "bootstrap.min.css"],
+      "js": ["jquery-3.2.1.min.js", "story_main.js", "node_modules/crypto-js/crypto-js.js", "inject.js", "bootstrap.min.js"]
+    }],
+  "web_accessible_resources": [
+    "story_main.html", "icon.png", "fonts/*.eot", "fonts/*.svg", "fonts/*.ttf", "fonts/*.woff", "fonts/*.woff2", "fonts/*.otf"]
+}
