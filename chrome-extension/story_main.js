@@ -49,6 +49,10 @@ function populateStories(stories) {
 		$('.carousel').carousel({
 		    interval: 3000
 		})
+        $('.carousel').click(function() {
+            $('.carousel').carousel('next')
+        })
+
 	})
 
     
@@ -158,11 +162,16 @@ $(document).ready(function() {
 
                 $("#internet-stories-cancel").click(function () {
                     console.log("CANCEL!")
+                    const video = document.getElementById("is_video");
                     const canvas = document.getElementById("is_canvas");
                     canvas.style.display = "none";
                     $("#internet-stories-cancel").hide();
                     $("#internet-stories-confirm").hide();
                     $("#internet-stories-post-story-capture-button button").show();
+                    var track = webcam_stream.getTracks()[0];  // if only one media track
+                    track.stop();
+                    track = null;
+                    video.style.display="none";
                 })
 
                 $("#internet-stories-confirm").click(function () {
@@ -171,7 +180,13 @@ $(document).ready(function() {
                     imageUrl = null;
                     $("#internet-stories-cancel").hide();
                     $("#internet-stories-confirm").hide();
-                    $("#internet-stories-post-story-capture-button button").show();
+                    viewStory(-1);
+                    $("#internet-stories-black-screen").fadeOut();
+                    const video = document.getElementById("is_video");
+                    var track = webcam_stream.getTracks()[0];  // if only one media track
+                    track.stop();
+                    track = null;
+                    video.style.display="none";
                 })
 
                 const postCapture = $(".internet-stories-post-story-button");
